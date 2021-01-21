@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './shared/components/components.module';
 import { FeatureModule } from './feature/feature.module';
 import { AppRoutingModule } from './app-routing.module';
-
 @NgModule({
   declarations: [
     AppComponent,

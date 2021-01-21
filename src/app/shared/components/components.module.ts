@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [InputComponent, ButtonComponent],
+  declarations: [InputComponent, ButtonComponent, AlertComponent],
   imports: [
     CommonModule
   ],
