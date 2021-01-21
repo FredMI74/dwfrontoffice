@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import {AppComponent} from './app.component';
-import { LoginComponent } from './feature/login/login.component'
+import {RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './feature/login/login.component';
+import { HomeComponent } from './feature/home/home.component'
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'login', component: LoginComponent },
-];
-
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent}
+]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

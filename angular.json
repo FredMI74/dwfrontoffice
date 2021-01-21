@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "dwfrontoffice"
+  "defaultProject": "dwfrontoffice",
+  "cli": {
+    "analytics": "7f69edc5-71ba-4edf-b9d1-19d592702e91"
+  }
 }
