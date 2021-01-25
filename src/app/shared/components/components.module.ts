@@ -10,6 +10,6 @@ import { AlertComponent } from './alert/alert.component';
   imports: [
     CommonModule
   ],
-  exports: [ButtonComponent,InputComponent ],
+  exports: [ButtonComponent,InputComponent,AlertComponent ],
 })
 export class ComponentsModule { }
