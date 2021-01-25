@@ -1,1 +1,12 @@
-<page-home></page-home>
+<div *ngIf="router.url !== '/login'">
+  <header></header>
+</div>
+<!-- main app container -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <alert></alert>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
