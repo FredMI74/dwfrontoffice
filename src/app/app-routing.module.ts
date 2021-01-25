@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './feature/login/login.component';
-import { HomeComponent } from './feature/home/home.component'
+import { HeaderComponent } from './feature/header/header.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HeaderComponent},
   {path: 'login', component: LoginComponent}
 ]
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+  RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
 })
