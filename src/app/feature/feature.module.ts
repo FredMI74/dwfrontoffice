@@ -7,20 +7,13 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [
-     LoginComponent,
-     HomeComponent,
-     HeaderComponent],
+  declarations: [LoginComponent, HomeComponent, HeaderComponent],
   imports: [
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: [
-    LoginComponent,
-    HomeComponent,
-    HeaderComponent
-  ]
+  exports: [LoginComponent, HomeComponent, HeaderComponent],
 })
-export class FeatureModule { }
+export class FeatureModule {}
