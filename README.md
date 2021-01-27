@@ -2,26 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
-## Development server
+## Repositório
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone do  [repositório]( https://github.com/FredMI74/dwfrontoffice), para pasta "C:\treinamento-angular\dwfrontoffice"
 
-## Code scaffolding
+## Criação do projeto Angular:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ executado o comando `ng new dwfrontoffice` dentro da pasta `C:\treinamento-angular` com as opções:
 
-## Build
+*  Do you want to enforce stricter type checking and stricter bundle budgets in the workspace? Yes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+*  Would you like to add Angular routing? Yes
 
-## Running unit tests
+* Which stylesheet format would you like to use? CSS
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Adicionando as dependências de desenvolvimento
 
-## Running end-to-end tests
+* Instalando o Bootstrap: executado o comando `npm install bootstrap` na pasta `C:\treinamento-angular\dwfrontoffice`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* Incluído o Bootstrap em "styles" no arquivo `angular.json` do projeto:
+```
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+]
+```
+## Obs.:
+ Após efetuar o clone na sua máquina, executar o comando `npm install` dentro da pasta para a instalação dos módulos do projeto.
 
-## Further help
+### Integração contínua em:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* https://zealous-flower-03f4df710.azurestaticapps.net
+
+* https://www.dealwish.com.br/
+
