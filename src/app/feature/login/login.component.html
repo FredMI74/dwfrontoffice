@@ -26,19 +26,35 @@
       </p>
     </div>
     <div>
-      <form [formGroup]="control" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="div-input">
           <label for="">Nome</label>
-          <dw-input name="login" id="login"></dw-input>
+          <dw-input
+            id="login"
+            formControlName="email"
+            ngDefaultControl
+          ></dw-input>
+          <!-- <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+          /> -->
         </div>
         <div class="div-input div-password">
           <label for="">Senha</label>
           <dw-input
             type="password"
-            name="currentPassword"
-
-            id="currentPassword"
+            id="password"
+            formControlName="currentPassword"
+            ngDefaultControl
           ></dw-input>
+          <!-- <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="currentPassword"
+          /> -->
         </div>
         <div class="div-button">
           <dw-button label="Cadastrar" classUsed="secondaryBtn"></dw-button>
