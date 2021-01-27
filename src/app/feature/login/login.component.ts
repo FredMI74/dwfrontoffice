@@ -15,15 +15,13 @@ export class LoginComponent implements OnInit {
   // returnUrl: string;
 
   constructor(private router: Router, private loginService: LoginService) {
-    this.loginForm = new FormGroup({});
-  }
-
-  ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(''),
       currentPassword: new FormControl(''),
     });
   }
+
+  ngOnInit(): void {}
 
   onSubmit() {
     console.log(

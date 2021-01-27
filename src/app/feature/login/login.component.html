@@ -29,7 +29,11 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="div-input">
           <label for="">Nome</label>
-          <dw-input name="login" formControlName="email"></dw-input>
+          <dw-input
+            id="login"
+            formControlName="email"
+            ngDefaultControl
+          ></dw-input>
           <!-- <input
             type="text"
             id="email"
@@ -41,8 +45,9 @@
           <label for="">Senha</label>
           <dw-input
             type="password"
-            name="password"
+            id="password"
             formControlName="currentPassword"
+            ngDefaultControl
           ></dw-input>
           <!-- <input
             type="password"
