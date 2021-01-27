@@ -12,6 +12,7 @@ export class InputComponent  {
   @Input() id : string = '';
   @Input() placeholder : string =  '';
   @Input() classInput : string = 'defaultInput';
+  @Input() formControlName: string = '';
 
   constructor() {
   }

@@ -1,0 +1,27 @@
+nav{
+  background-color: #4F4F4F;
+  height: 142px;
+}
+.headerLogo h1{
+  color: #F2994A;
+  font-weight: bold;
+}
+.headerLogo h4{
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 0.5;
+}
+.headerDynamicOptions a{
+  color: #bdbdbd;
+  font-weight: 500;
+}
+.headerStaticOptions li:first-child>a{
+    color: #eb5757;
+}
+.headerStaticOptions a{
+  color: #f2c94C;
+}
+
+ul:last-child{
+  margin-left: auto;
+}

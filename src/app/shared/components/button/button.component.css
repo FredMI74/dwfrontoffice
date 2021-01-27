@@ -11,3 +11,13 @@
 .defaultBtn:hover {
   color: #ffff;
 }
+
+.secondaryBtn {
+  background: #ffff;
+  border-radius: 5px;
+  border: 1px solid #f2994a;
+  color: #f2994a;
+  outline: none;
+  width: 130px;
+  height: 50px;
+}

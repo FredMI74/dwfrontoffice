@@ -10,6 +10,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 7px;
 }
 
 .card-info {
@@ -25,7 +26,7 @@ form {
   text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
-.text-info {
+.text-desc {
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
@@ -51,22 +52,29 @@ form {
   -o-background-size: cover;
   background-size: cover;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-around;
+  margin: 0;
 }
 
 .card-form {
-  width: 482px;
-  height: 400px;
+  /* width: 482px; */
+  height: 450px;
   border-radius: 10px;
-  margin-right: 20px;
 }
 
 .div-input {
   text-align: left;
   margin-top: 40px;
+  width: 300px;
 }
 
 .div-password {
   margin-bottom: 50px;
+}
+
+.div-button {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }

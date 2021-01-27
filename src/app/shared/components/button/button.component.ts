@@ -9,6 +9,7 @@ export class ButtonComponent {
 
   @Input() label: string = 'Entrar' ;
   @Input() classUsed: string = 'defaultBtn';
+  @Input() typeButton: string = '';
 
   constructor() {
    }
