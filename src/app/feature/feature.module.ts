@@ -5,15 +5,17 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [LoginComponent, HomeComponent, HeaderComponent],
+  declarations: [
+     LoginComponent,
+     HomeComponent,
+     HeaderComponent],
   imports: [
     CommonModule,
     ComponentsModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent,

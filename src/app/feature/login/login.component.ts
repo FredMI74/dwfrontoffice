@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +10,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  control: FormGroup;
+  control: FormGroup = new FormGroup({});
+  loading = false;
+  submitted = false;
+ // returnUrl: string;
 
-  constructor(private fb : FormBuilder) {
-    this.control = fb.group({});
+  constructor(
+    private fb : FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    )
+    {
+    //this.control = fb.group({});
    }
 
   ngOnInit(): void {
+
     this.control = this.fb.group({
-      login: ['', [Validators.required]],
-      currentPassword: ['', [Validators.required]]
-    });
+      login: ['', Validators.required],
+      currentPassword: ['', Validators.required]
+  });
   }
 
   onSubmit(){

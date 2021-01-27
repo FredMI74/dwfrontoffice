@@ -26,17 +26,17 @@
       </p>
     </div>
     <div>
-      <form action="" [formGroup]="control" (ngSubmit)="onSubmit()">
+      <form [formGroup]="control" (ngSubmit)="onSubmit()">
         <div class="div-input">
           <label for="">Nome</label>
-          <dw-input name="login" formControlName="login" id="login"></dw-input>
+          <dw-input name="login" id="login"></dw-input>
         </div>
         <div class="div-input div-password">
           <label for="">Senha</label>
           <dw-input
             type="password"
             name="currentPassword"
-            formControlName="currentPassword"
+
             id="currentPassword"
           ></dw-input>
         </div>
