@@ -36,8 +36,13 @@ export class LoginComponent implements OnInit {
         this.loginForm.get('currentPassword')?.value
       )
       .subscribe((response) => {
-        console.log('resposta', response);
-        // this.router.navigateByUrl('/');
+        if (response.resultado.erro === false) {
+          localStorage.setItem(
+            'currentUser',
+            JSON.stringify(response.conteudo)
+          );
+          this.router.navigateByUrl('/');
+        }
       });
   }
 }
