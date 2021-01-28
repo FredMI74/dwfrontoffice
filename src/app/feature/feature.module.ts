@@ -18,7 +18,7 @@ import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component'
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   exports: [LoginComponent, HomeComponent, HeaderComponent],
 })

@@ -16,7 +16,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
-                <dw-input autocomplete="off" id="descricao" name="descricao" type="text" ></dw-input>
+                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text" ></dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Tipo de Produto</label>
@@ -35,7 +35,7 @@
                     <option value="unlike">Unlike</option>
                 </select>
             </div>
-            <div class="form-group col-md-2">
+             <div class="form-group col-md-2">
                 <label class="label_input" for="uf">UF</label>
                 <select class="form-control" id="uf" name="uf">
                     <option value="" selected disabled hidden></option>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="cidade">Cidade</label>
-                <input type="number" name="id_cidade" id="id_cidade" hidden />
+                <dw-input type="number" name="id_cidade" id="id_cidade" hidden ></dw-input>
                 <dw-input type="text" name="nome_cidade" id="nome_cidade" ></dw-input>
             </div>
             <div class="form-group col-md-1">
@@ -101,7 +101,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(1)"></i></span></td>
             </tr>
             <tr>
               <th scope="row">2</th>
@@ -110,7 +110,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(2)"></i></span></td>
             </tr>
             <tr>
               <th scope="row">3</th>
@@ -119,7 +119,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(3)"></i></span></td>
             </tr>
           </tbody>
       

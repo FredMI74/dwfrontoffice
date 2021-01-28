@@ -10,7 +10,7 @@ export class InputComponent {
   @Input() name: string = '';
   @Input() id: string = '';
   @Input() placeholder: string = '';
-  @Input() classInput: string = 'defaultInput form-control';
+  @Input() classInput: string = 'defaultInput';
   @Input() formControlName: string = '';
 
   constructor() {}

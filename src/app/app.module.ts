@@ -7,6 +7,7 @@ import { FeatureModule } from './feature/feature.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComponentsModule,
     FeatureModule,
     AppRoutingModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

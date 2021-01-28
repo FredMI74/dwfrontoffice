@@ -1,0 +1,54 @@
+<div style="padding-left: 5%; padding-top: 1%; padding-right: 5%">
+    <div>
+        <h4>Incluir Oferta (id: {{ id_wish}})</h4>
+    </div>
+    <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" id="id_desejo" name="id_desejo" type="hidden" />
+                    <input class="form-control" autocomplete="off" id="descricao_desejo" name="descricao_desejo" type="hidden" />
+                    <label for="descricao">Descrição</label>
+                    <textarea style="width:100%" rows="4" cols="50" class="form-control" autocomplete="off" id="descricao" name="descricao"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="destaque" value="S">
+                        <label class="form-check-label" for="destaque">Destaque*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Valor</label>
+                    <input style="width:100%" class="form-control" autocomplete="off" id="valor" name="valor" type="text" onkeyup="return formatarMoeda(valor);" />
+                </div>
+                <div class="form-group">
+                    <label>Validade</label>
+                    <input style="width:100%" class="form-control" autocomplete="off" id="validade" name="validade" type="date" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="for-group">
+                    <label>Url</label>
+                    <input style="width:100%" class="form-control" autocomplete="off" id="url" name="url" type="text" />
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col">
+                    <dw-button type="submit" label="Incluir"></dw-button>
+                </div>
+                <div class="col">
+                    <dw-button type="submit" label="Cancelar"></dw-button>
+                </div>
+            </div>
+    </form>
+    <hr />
+    <h6><i><font color="gray">*contabilizado como duas ofertas</font></i></h6>
+</div>

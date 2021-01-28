@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 import { ComponentsModule } from '@components/components.module';
 import { ListWishesComponent } from './list-wishes/list-wishes.component';
+import { AddOfferComponent } from '@feature/offers/add-offer/add-offer.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AddOfferComponent],
   imports: [
     CommonModule,
     ComponentsModule,
