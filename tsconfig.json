@@ -21,6 +21,8 @@
       "dom"
     ],
     "paths": {
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"],
       "@components/*": ["src/app/shared/components/*"],
       "@feature/*": ["src/app/feature/*"]
     }

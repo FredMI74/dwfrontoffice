@@ -18,12 +18,8 @@ import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component'
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: [
-    LoginComponent,
-    HomeComponent,
-    HeaderComponent
-  ]
+  exports: [LoginComponent, HomeComponent, HeaderComponent],
 })
-export class FeatureModule { }
+export class FeatureModule {}
