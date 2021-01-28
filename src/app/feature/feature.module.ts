@@ -6,11 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component';
+
 @NgModule({
   declarations: [
      LoginComponent,
      HomeComponent,
-     HeaderComponent],
+     HeaderComponent,
+     ListWishesComponent],
   imports: [
     CommonModule,
     ComponentsModule,

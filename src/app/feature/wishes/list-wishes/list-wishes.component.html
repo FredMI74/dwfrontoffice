@@ -1,0 +1,127 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <div class="label_title">Consultar Desejos</div>
+        </div>
+        <div class="right">
+            <a class="nav-link" href=""><i class="bi bi-house"></i></a>
+        </div>
+    </div>
+    <hr />
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-1">
+                <label class="label_input" for="id">Código</label>
+                <dw-input aria-label="Código" autocomplete="off" id="id" name="id" type="number" ></dw-input>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="label_input" for="descricao">Descrição</label>
+                <dw-input autocomplete="off" id="descricao" name="descricao" type="text" ></dw-input>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="label_input" for="TpPpoduto">Tipo de Produto</label>
+                <select class="form-control" name="id_tipo_produto">
+                    <option value="" selected disabled hidden></option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="label_input" for="Ofertas">Ofertas</label>
+                <select class="form-control" name="oferta">
+                    <option value="" selected disabled hidden></option>
+                    <option value="sem_oferta">Sem ofertas</option>
+                    <option value="com_oferta">Com ofertas</option>
+                    <option value="perdendo">Perdendo</option>
+                    <option value="like">Like</option>
+                    <option value="unlike">Unlike</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="label_input" for="uf">UF</label>
+                <select class="form-control" id="uf" name="uf">
+                    <option value="" selected disabled hidden></option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="label_input" for="cidade">Cidade</label>
+                <input type="number" name="id_cidade" id="id_cidade" hidden />
+                <dw-input type="text" name="nome_cidade" id="nome_cidade" ></dw-input>
+            </div>
+            <div class="form-group col-md-1">
+                <div class="vertical-center">
+                   <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i></dw-button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr />
+    <table class="label_grid table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Cód.</th>
+                <th scope="col">Icone</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Cidade/UF</th>
+                <th scope="col">Tipo Prod.</th>
+                <th scope="col">Ofertas Vál.</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+      
+    </table>
+</div>
