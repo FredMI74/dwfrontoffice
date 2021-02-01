@@ -8,7 +8,7 @@
         </div>
     </div>
     <hr />
-    <form>
+    <form [formGroup]="listForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
             <div class="form-group col-md-1">
                 <label class="label_input" for="id">Código</label>
@@ -16,7 +16,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
-                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text" ></dw-input>
+                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"  ngDefaultControl></dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Tipo de Produto</label>
@@ -81,47 +81,25 @@
         </div>
     </form>
     <hr />
-    <table class="label_grid table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Cód.</th>
-                <th scope="col">Icone</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Cidade/UF</th>
-                <th scope="col">Tipo Prod.</th>
-                <th scope="col">Ofertas Vál.</th>
-                <th scope="col">Ação</th>
-            </tr>
+
+
+    <table mdbTable class="label_grid table table-striped">
+        <thead  class="thead-dark">
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(1)"></i></span></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(2)"></i></span></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(3)"></i></span></td>
-            </tr>
-          </tbody>
-      
-    </table>
+          <tr mdbTableCol *ngFor="let el of elements">
+            <th scope="row">{{el.id}}</th>
+            <td><img src={{el.icone_tp_produto}}/></td>
+            <td>{{el.descricao}}</td>
+            <td>{{el.cidade}}</td>
+            <td>{{el.desc_tp_produto}}</td>
+            <td>{{el.qtd_ofertas}}</td>
+            <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(el.id)"></i></span></td>
+          </tr>
+        </tbody>
+      </table>
+
 </div>
