@@ -18,13 +18,34 @@ export class WhishesService {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Bearer ' + currentUser.tokenJwt
     });
- console.log(currentUser);
+    
     const body = new HttpParams()
       .set('descricao', description)
       .set('token', currentUser.token);
 
     return this.http.post<any>(
       `${environment.apiUrl}/api/consultar_desejo`,
+      body.toString(),
+      { headers: _headers }
+    );
+  }
+
+  list_prods() {
+    var  currentUser = new User();
+    currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    var _headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Bearer ' + currentUser.tokenJwt
+    });
+
+    const body = new HttpParams()
+      .set('descricao', '%')
+      .set('id_situacao', '1')
+      .set('token', currentUser.token);
+
+    return this.http.post<any>(
+      `${environment.apiUrl}/api/consultar_tp_produto`,
       body.toString(),
       { headers: _headers }
     );

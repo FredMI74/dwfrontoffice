@@ -16,7 +16,7 @@ export class ListWishesComponent implements OnInit {
   headElements = ['Cód', 'Icone', 'Descrição', 'Cidade','Tipo Prod.', 'Ofertas Vál.','Ação'];
 
   elements: any;
-
+  products: any;
 
   constructor(private modalService: NgbModal, private wishesService :  WhishesService) {
 
@@ -30,7 +30,16 @@ export class ListWishesComponent implements OnInit {
    modalRef.componentInstance.id_wish = id_wish;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.wishesService
+    .list_prods()
+    .subscribe((response) => {
+      if (response.resultado.erro === false) {
+          console.log(response);
+          this.products = response.conteudo;
+      }
+    });
+  }
 
   onSubmit() {
     console.log('data = ', this.listForm.controls.descricao?.value );

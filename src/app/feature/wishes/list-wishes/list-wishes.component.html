@@ -19,9 +19,10 @@
                 <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"  ngDefaultControl></dw-input>
             </div>
             <div class="form-group col-md-2">
-                <label class="label_input" for="TpPpoduto">Tipo de Produto</label>
+                <label class="label_input" for="TpPpoduto">Produtos</label>
                 <select class="form-control" name="id_tipo_produto">
                     <option value="" selected disabled hidden></option>
+                    <option *ngFor="let prod of products" [ngValue]="prod.id_tipo_produto">{{prod.descricao}}</option>
                 </select>
             </div>
             <div class="form-group col-md-2">
