@@ -10,20 +10,28 @@
     <hr />
     <form [formGroup]="listForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-1"  ng-controller="ExampleController">
                 <label class="label_input" for="id">Código</label>
                 <dw-input aria-label="Código" autocomplete="off" id="id" name="id" type="number" ></dw-input>
             </div>
+
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
                 <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"  ngDefaultControl></dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Produtos</label>
-                <select class="form-control" name="id_tipo_produto">
+                <select class="form-control input-sm" formControlName="id_tp_produto">
                     <option value="" selected disabled hidden></option>
-                    <option *ngFor="let prod of products" [ngValue]="prod.id_tipo_produto">{{prod.descricao}}</option>
-                </select>
+                    <optgroup *ngFor="let depto of departments" 
+                              label= {{depto}} >
+                        <ng-container *ngFor="let prod of products" >
+                          <option *ngIf="prod.desc_grp_produto === depto" value={{prod.id}}>
+                              {{prod.descricao}}
+                          </option>
+                        </ng-container> 
+                    </optgroup>
+                  </select>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="Ofertas">Ofertas</label>
@@ -90,7 +98,7 @@
             <th *ngFor="let head of headElements" scope="col">{{head}} </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="listResult > 0">
           <tr mdbTableCol *ngFor="let el of elements">
             <th scope="row">{{el.id}}</th>
             <td><img src={{el.icone_tp_produto}}/></td>
@@ -101,6 +109,6 @@
             <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(el.id)"></i></span></td>
           </tr>
         </tbody>
-      </table>
-
+    </table>
+    <h5 *ngIf="listResult === 0">nenhum registro encontrado.</h5>
 </div>

@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class WhishesService {
   constructor(private http: HttpClient) {}
  
-  list(description: string = '') {
+  list(description: string = '', id_tp_prod: string = "0") {
     var  currentUser = new User();
     currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
 
@@ -21,6 +21,7 @@ export class WhishesService {
     
     const body = new HttpParams()
       .set('descricao', description)
+      .set('id_tipo_produto', id_tp_prod)
       .set('token', currentUser.token);
 
     return this.http.post<any>(
