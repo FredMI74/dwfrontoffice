@@ -42,7 +42,7 @@ export class ListWishesComponent implements OnInit {
 
   openModal(id_wish: string) {
     const modalRef = this.modalService.open(AddOfferComponent);
-   modalRef.componentInstance.id_wish = id_wish;
+    modalRef.componentInstance.id_wish = id_wish;
   }
 
   ngOnInit(): void { 
