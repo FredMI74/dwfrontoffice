@@ -13,6 +13,7 @@ export class ListWishesComponent implements OnInit {
   
   listForm: FormGroup;
   listResult: number = -1;
+  mensagem: string = "";
 
   headElements = ['Cód', 'Icone', 'Descrição', 'Cidade','Tipo Prod.', 'Ofertas Vál.','Ação'];
 
@@ -41,7 +42,7 @@ export class ListWishesComponent implements OnInit {
    }
 
   openModal(id_wish: string) {
-    const modalRef = this.modalService.open(AddOfferComponent);
+    const modalRef = this.modalService.open(AddOfferComponent, {centered: true});
     modalRef.componentInstance.id_wish = id_wish;
   }
 
@@ -71,6 +72,9 @@ export class ListWishesComponent implements OnInit {
             console.log(response);
             this.elements = response.conteudo;
             this.listResult = this.elements.length;
+        } else {
+          this.listResult = -2;
+          this.mensagem = response.resultado.mensagem;
         }
       });
   }

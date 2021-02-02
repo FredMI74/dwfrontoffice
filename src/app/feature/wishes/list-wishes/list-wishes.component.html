@@ -10,28 +10,28 @@
     <hr />
     <form [formGroup]="listForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <div class="form-group col-md-1"  ng-controller="ExampleController">
+            <div class="form-group col-md-1">
                 <label class="label_input" for="id">Código</label>
-                <dw-input aria-label="Código" autocomplete="off" id="id" name="id" type="number" ></dw-input>
+                <dw-input aria-label="Código" autocomplete="off" id="id" name="id" type="number"></dw-input>
             </div>
 
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
-                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"  ngDefaultControl></dw-input>
+                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"
+                    ngDefaultControl></dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Produtos</label>
                 <select class="form-control input-sm" formControlName="id_tp_produto">
                     <option value="" selected disabled hidden></option>
-                    <optgroup *ngFor="let depto of departments" 
-                              label= {{depto}} >
-                        <ng-container *ngFor="let prod of products" >
-                          <option *ngIf="prod.desc_grp_produto === depto" value={{prod.id}}>
-                              {{prod.descricao}}
-                          </option>
-                        </ng-container> 
+                    <optgroup *ngFor="let depto of departments" label={{depto}}>
+                        <ng-container *ngFor="let prod of products">
+                            <option *ngIf="prod.desc_grp_produto === depto" value={{prod.id}}>
+                                {{prod.descricao}}
+                            </option>
+                        </ng-container>
                     </optgroup>
-                  </select>
+                </select>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="Ofertas">Ofertas</label>
@@ -44,7 +44,7 @@
                     <option value="unlike">Unlike</option>
                 </select>
             </div>
-             <div class="form-group col-md-2">
+            <div class="form-group col-md-2">
                 <label class="label_input" for="uf">UF</label>
                 <select class="form-control" id="uf" name="uf">
                     <option value="" selected disabled hidden></option>
@@ -79,36 +79,41 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="cidade">Cidade</label>
-                <dw-input type="number" name="id_cidade" id="id_cidade" hidden ></dw-input>
-                <dw-input type="text" name="nome_cidade" id="nome_cidade" ></dw-input>
+                <dw-input type="number" name="id_cidade" id="id_cidade" hidden></dw-input>
+                <dw-input type="text" name="nome_cidade" id="nome_cidade"></dw-input>
             </div>
             <div class="form-group col-md-1">
                 <div class="vertical-center">
-                   <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i></dw-button>
+                    <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i>
+                    </dw-button>
                 </div>
             </div>
         </div>
     </form>
     <hr />
 
+    <div class="table-fixed ">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="listResult > 0">
+                <tr *ngFor="let el of elements">
+                    <th scope="row">{{el.id}}</th>
+                    <td><img src={{el.icone_tp_produto}} /></td>
+                    <td>{{el.descricao}}</td>
+                    <td>{{el.cidade}}</td>
+                    <td>{{el.desc_tp_produto}}</td>
+                    <td>{{el.qtd_ofertas}}</td>
+                    <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus"
+                                (click)="openModal(el.id)"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table mdbTable class="label_grid table table-striped">
-        <thead  class="thead-dark">
-          <tr>
-            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-          </tr>
-        </thead>
-        <tbody *ngIf="listResult > 0">
-          <tr mdbTableCol *ngFor="let el of elements">
-            <th scope="row">{{el.id}}</th>
-            <td><img src={{el.icone_tp_produto}}/></td>
-            <td>{{el.descricao}}</td>
-            <td>{{el.cidade}}</td>
-            <td>{{el.desc_tp_produto}}</td>
-            <td>{{el.qtd_ofertas}}</td>
-            <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus" (click)="openModal(el.id)"></i></span></td>
-          </tr>
-        </tbody>
-    </table>
     <h5 *ngIf="listResult === 0">nenhum registro encontrado.</h5>
+    <h5 *ngIf="listResult === -2">{{mensagem}}</h5>
 </div>
