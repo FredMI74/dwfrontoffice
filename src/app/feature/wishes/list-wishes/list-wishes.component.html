@@ -25,9 +25,9 @@
                 <select class="form-control input-sm" formControlName="id_tp_produto">
                     <option value="" selected disabled hidden></option>
                     <optgroup *ngFor="let depto of departments" label={{depto}}>
-                        <ng-container *ngFor="let prod of products">
-                            <option *ngIf="prod.desc_grp_produto === depto" value={{prod.id}}>
-                                {{prod.descricao}}
+                        <ng-container *ngFor="let p of products.conteudo">
+                            <option *ngIf="p.desc_grp_produto === depto" value={{p.id}}>
+                                {{p.descricao}}
                             </option>
                         </ng-container>
                     </optgroup>
@@ -96,19 +96,19 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                    <th *ngFor="let head of headWishes" scope="col">{{head}} </th>
                 </tr>
             </thead>
             <tbody *ngIf="listResult > 0">
-                <tr *ngFor="let el of elements">
-                    <th scope="row">{{el.id}}</th>
-                    <td><img src={{el.icone_tp_produto}} /></td>
-                    <td>{{el.descricao}}</td>
-                    <td>{{el.cidade}}</td>
-                    <td>{{el.desc_tp_produto}}</td>
-                    <td>{{el.qtd_ofertas}}</td>
+                <tr *ngFor="let w of wishes.conteudo">
+                    <th scope="row">{{w.id}}</th>
+                    <td><img src={{w.icone_tp_produto}} /></td>
+                    <td>{{w.descricao}}</td>
+                    <td>{{w.cidade}}</td>
+                    <td>{{w.desc_tp_produto}}</td>
+                    <td>{{w.qtd_ofertas}}</td>
                     <td><span role="button" title="Incluir oferta"><i class="bi bi-clipboard-plus"
-                                (click)="openModal(el.id)"></i></span></td>
+                                (click)="openModal(w.id)"></i></span></td>
                 </tr>
             </tbody>
         </table>

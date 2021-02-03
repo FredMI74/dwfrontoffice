@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AddOfferComponent } from '@feature/offers/add-offer/add-offer.component';
 import { FormControl, FormGroup} from '@angular/forms';
-import { WhishesService } from '../wishes.service';
+import { WhishesService } from '@feature/wishes/wishes.service';
+import { Products } from '@feature/models/product';
+import { Wishes } from '@feature/models/wish';
 
 @Component({
   selector: 'page-list-wishes',
@@ -14,21 +16,12 @@ export class ListWishesComponent implements OnInit {
   listForm: FormGroup;
   listResult: number = -1;
   mensagem: string = "";
+  closeResult = '';
 
-  headElements = ['Cód', 'Icone', 'Descrição', 'Cidade','Tipo Prod.', 'Ofertas Vál.','Ação'];
+  headWishes = ['Cód', 'Icone', 'Descrição', 'Cidade','Tipo Prod.', 'Ofertas Vál.','Ação'];
 
-  elements: any;
-  products = [{
-          desc_grp_produto: "",
-          desc_situacao: "",
-          descricao: "",
-          icone: "",
-          id: 0,
-          id_grp_prod: 0,
-          id_situacao: 0,
-          ordem: 0,
-          preenchimento: ""
-  }];
+  wishes = new Wishes();
+  products: Products = new Products;
   
   departments: string[] = []; 
 
@@ -41,20 +34,22 @@ export class ListWishesComponent implements OnInit {
     });
    }
 
-  openModal(id_wish: string) {
-    const modalRef = this.modalService.open(AddOfferComponent, {centered: true});
+  openModal(id_wish: number) {
+    const modalRef = this.modalService.open(AddOfferComponent, { centered: true });
     modalRef.componentInstance.id_wish = id_wish;
   }
 
   ngOnInit(): void { 
-
     this.wishesService
     .list_prods()
     .subscribe((response) => {
-      if (response.resultado.erro === false) {
-          console.log(response);
-          this.products = response.conteudo;
-          this.departments = Array.from( new Set(this.products.map(({desc_grp_produto}) => desc_grp_produto)));
+      this.products = response;
+      if (this.products.resultado.erro === false) {
+          console.log(this.products.conteudo);
+
+          this.products.conteudo.map( function(p)  { console.log(p.desc_grp_produto)});
+          
+          this.departments = Array.from(new Set(this.products.conteudo.map((p) =>p.desc_grp_produto)));
         }
     });
   }
@@ -68,10 +63,11 @@ export class ListWishesComponent implements OnInit {
         this.listForm.get('descricao')?.value,
         this.listForm.controls.id_tp_produto?.value)
       .subscribe((response) => {
-        if (response.resultado.erro === false) {
+        this.wishes = response;
+        if (this.wishes.resultado.erro === false) {
             console.log(response);
-            this.elements = response.conteudo;
-            this.listResult = this.elements.length;
+            
+            this.listResult = this.wishes.conteudo.length;
         } else {
           this.listResult = -2;
           this.mensagem = response.resultado.mensagem;

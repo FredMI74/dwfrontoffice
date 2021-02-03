@@ -4,6 +4,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { ComponentsModule } from '@components/components.module';
 import { ListWishesComponent } from './list-wishes/list-wishes.component';
 import { AddOfferComponent } from '@feature/offers/add-offer/add-offer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -17,6 +18,8 @@ const routes: Routes = [
   declarations: [
     AddOfferComponent],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     CommonModule,
     ComponentsModule,
     RouterModule.forChild(routes)

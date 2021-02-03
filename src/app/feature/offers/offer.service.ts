@@ -1,15 +1,13 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Products } from '../models/product';
 import { User } from '../models/user';
-import { Wishes } from '../models/wish';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class WhishesService {
+export class OfferService {
  
   private  _currentUser: User = JSON.parse(localStorage.getItem('currentUser') || '{}');
 
@@ -20,29 +18,19 @@ export class WhishesService {
 
   constructor(private http: HttpClient) {}
 
-  list(description: string = '', id_tp_prod: string = "0") {
-
+  add_offer(id_desejo : number, validade : Date, valor: number, url: string, descricao:string, destaque: string) {
     const body = new HttpParams()
-      .set('descricao', description)
-      .set('id_tipo_produto', id_tp_prod)
-      .set('id_situacao', '1')
+      .set('id_desejo', id_desejo.toString())
+      .set('id_empresa', this._currentUser.id_empresa.toString())
+      .set('validade', validade.toString())
+      .set('valor', valor.toString())
+      .set('url',url)
+      .set('descricao',descricao)
+      .set('destaque',destaque?'S':'N')
       .set('token', this._currentUser.token);
 
-    return this.http.post<Wishes>(
-      `${environment.apiUrl}/api/consultar_desejo`,
-      body.toString(),
-      { headers: this._headers }
-    );
-  }
-
-  list_prods() {
-    const body = new HttpParams()
-      .set('descricao', '%')
-      .set('id_situacao', '1')
-      .set('token', this._currentUser.token);
-
-    return this.http.post<Products>(
-      `${environment.apiUrl}/api/consultar_tp_produto`,
+    return this.http.post<any>(
+      `${environment.apiUrl}/api/incluir_oferta`,
       body.toString(),
       { headers: this._headers }
     );
