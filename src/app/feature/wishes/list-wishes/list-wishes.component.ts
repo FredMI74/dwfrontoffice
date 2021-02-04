@@ -14,6 +14,8 @@ import { Wishes } from '@feature/models/wish';
 export class ListWishesComponent implements OnInit {
 
   p: number = 1;
+  count_id: number = 0;
+  max_id: number = 0;
   
   listForm: FormGroup;
   listResult: number = -1;
@@ -57,8 +59,6 @@ export class ListWishesComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.listForm.controls.id?.value);
-
     this.wishesService
       .list(
         this.listForm.controls.descricao?.value,
@@ -70,6 +70,8 @@ export class ListWishesComponent implements OnInit {
         this.wishes = response;
         if (this.wishes.resultado.erro === false) {
             this.listResult = this.wishes.conteudo.length;
+            this.count_id = this.wishes.infoPagina.count_id;
+            this.max_id = this.wishes.infoPagina.max_id;
         } else {
           this.listResult = -2;
           this.mensagem = response.resultado.mensagem;
@@ -77,4 +79,24 @@ export class ListWishesComponent implements OnInit {
       });
   }
 
+
+  handlePageChange(event: number) {
+    this.p = event;
+    this.wishesService
+    .list(
+      this.listForm.controls.descricao?.value,
+      this.listForm.controls.id_tp_produto?.value,
+      this.listForm.controls.id_desejo?.value,
+      this.listForm.controls.oferta?.value,
+      this.listForm.controls.uf?.value, this.max_id, this.p)
+    .subscribe((response) => {
+      this.wishes = response;
+      if (this.wishes.resultado.erro === false) {
+          this.listResult = this.wishes.conteudo.length;
+      } else {
+        this.listResult = -2;
+        this.mensagem = response.resultado.mensagem;
+      }
+    });
+  }
 }
