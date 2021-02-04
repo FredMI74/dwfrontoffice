@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -17,9 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComponentsModule,
     FeatureModule,
     AppRoutingModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

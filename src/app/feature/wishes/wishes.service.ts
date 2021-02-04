@@ -27,7 +27,7 @@ export class WhishesService {
     const body = new HttpParams()
       .set('descricao', description)
       .set('id_tipo_produto', id_tp_prod)
-      .set('id_situacao', '1')
+      //.set('id_situacao', '1')
       .set('id', id)
       .set('oferta', oferta)
       .set('uf', uf)

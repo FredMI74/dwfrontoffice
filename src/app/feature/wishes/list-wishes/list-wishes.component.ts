@@ -12,6 +12,8 @@ import { Wishes } from '@feature/models/wish';
   styleUrls: ['./list-wishes.component.css']
 })
 export class ListWishesComponent implements OnInit {
+
+  p: number = 1;
   
   listForm: FormGroup;
   listResult: number = -1;

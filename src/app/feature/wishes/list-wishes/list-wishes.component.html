@@ -12,19 +12,21 @@
         <div class="form-row">
             <div class="form-group col-md-1">
                 <label class="label_input" for="id_desejo">Código</label>
-                <dw-input formControlName="id_desejo" autocomplete="off" id="id_desejo" type="number" ngDefaultControl></dw-input>
+                <dw-input formControlName="id_desejo" autocomplete="off" id="id_desejo" type="number" ngDefaultControl>
+                </dw-input>
             </div>
 
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
-                <dw-input formControlName="descricao" autocomplete="off" id="descricao" type="text" ngDefaultControl></dw-input>
+                <dw-input formControlName="descricao" autocomplete="off" id="descricao" type="text" ngDefaultControl>
+                </dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Produtos</label>
                 <select class="form-control input-sm" formControlName="id_tp_produto">
                     <option value=0></option>
                     <optgroup *ngFor="let depto of departments" label={{depto}}>
-                        <ng-container *ngFor="let p of products.conteudo">                  
+                        <ng-container *ngFor="let p of products.conteudo">
                             <option *ngIf="p.desc_grp_produto === depto" value={{p.id}}>
                                 {{p.descricao}}
                             </option>
@@ -85,7 +87,7 @@
         </div>
     </form>
     <hr />
-    
+
     <h5 *ngIf="listResult === 0">nenhum registro encontrado.</h5>
     <h5 *ngIf="listResult === -2">{{mensagem}}</h5>
 
@@ -97,7 +99,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="listResult > 0">
-                <tr *ngFor="let w of wishes.conteudo">
+                <tr *ngFor="let w of wishes.conteudo | paginate: { itemsPerPage: 10, currentPage: p }">
                     <th scope="row">{{w.id}}</th>
                     <td><img src={{w.icone_tp_produto}} /></td>
                     <td>{{w.descricao}}</td>
@@ -111,5 +113,5 @@
         </table>
     </div>
 
-
+    <pagination-controls *ngIf="listResult > 0" (pageChange)="p = $event"></pagination-controls>
 </div>

@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component'
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [LoginComponent, HomeComponent, HeaderComponent],
 })
