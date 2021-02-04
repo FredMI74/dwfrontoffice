@@ -27,19 +27,10 @@ export class AddOfferComponent implements OnInit {
 
   closeModal()
   {
-    console.log("cancelar");
     this.modalService.dismissAll();
   }
 
   onSubmit() {
-    console.log("incluir oferta");
-    console.log(
-      'data = ',
-      this.id_wish,
-      this.offerForm.controls.valor?.value,
-      document.getElementById('email')
-    );
-
     this.offerService.add_offer(
       this.id_wish, 
       this.offerForm.controls.validade?.value, 
@@ -53,7 +44,6 @@ export class AddOfferComponent implements OnInit {
       } else
       {
         this.mensagem = response.resultado.mensagem;
-        console.log(response.resultado.mensagem);
       }
     });
 

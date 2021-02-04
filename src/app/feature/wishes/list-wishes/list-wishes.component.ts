@@ -29,6 +29,9 @@ export class ListWishesComponent implements OnInit {
   constructor(private modalService: NgbModal, private wishesService :  WhishesService) {
 
     this.listForm = new FormGroup({
+      id_desejo: new FormControl(''),
+      oferta: new FormControl(''),
+      uf: new FormControl(''), 
       descricao: new FormControl(''),
       id_tp_produto : new FormControl('')
     });
@@ -45,10 +48,6 @@ export class ListWishesComponent implements OnInit {
     .subscribe((response) => {
       this.products = response;
       if (this.products.resultado.erro === false) {
-          console.log(this.products.conteudo);
-
-          this.products.conteudo.map( function(p)  { console.log(p.desc_grp_produto)});
-          
           this.departments = Array.from(new Set(this.products.conteudo.map((p) =>p.desc_grp_produto)));
         }
     });
@@ -56,17 +55,18 @@ export class ListWishesComponent implements OnInit {
 
 
   onSubmit() {
-    console.log('data = ', this.listForm.controls.descricao?.value, this.listForm.controls.id_tp_produto?.value );
-    
+    console.log(this.listForm.controls.id?.value);
+
     this.wishesService
       .list(
-        this.listForm.get('descricao')?.value,
-        this.listForm.controls.id_tp_produto?.value)
+        this.listForm.controls.descricao?.value,
+        this.listForm.controls.id_tp_produto?.value,
+        this.listForm.controls.id_desejo?.value,
+        this.listForm.controls.oferta?.value,
+        this.listForm.controls.uf?.value)
       .subscribe((response) => {
         this.wishes = response;
         if (this.wishes.resultado.erro === false) {
-            console.log(response);
-            
             this.listResult = this.wishes.conteudo.length;
         } else {
           this.listResult = -2;

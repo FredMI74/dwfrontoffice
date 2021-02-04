@@ -11,21 +11,20 @@
     <form [formGroup]="listForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
             <div class="form-group col-md-1">
-                <label class="label_input" for="id">Código</label>
-                <dw-input aria-label="Código" autocomplete="off" id="id" name="id" type="number"></dw-input>
+                <label class="label_input" for="id_desejo">Código</label>
+                <dw-input formControlName="id_desejo" autocomplete="off" id="id_desejo" type="number" ngDefaultControl></dw-input>
             </div>
 
             <div class="form-group col-md-2">
                 <label class="label_input" for="descricao">Descrição</label>
-                <dw-input formControlName="descricao" autocomplete="off" id="descricao" name="descricao" type="text"
-                    ngDefaultControl></dw-input>
+                <dw-input formControlName="descricao" autocomplete="off" id="descricao" type="text" ngDefaultControl></dw-input>
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="TpPpoduto">Produtos</label>
                 <select class="form-control input-sm" formControlName="id_tp_produto">
-                    <option value="" selected disabled hidden></option>
+                    <option value=0></option>
                     <optgroup *ngFor="let depto of departments" label={{depto}}>
-                        <ng-container *ngFor="let p of products.conteudo">
+                        <ng-container *ngFor="let p of products.conteudo">                  
                             <option *ngIf="p.desc_grp_produto === depto" value={{p.id}}>
                                 {{p.descricao}}
                             </option>
@@ -35,8 +34,8 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="Ofertas">Ofertas</label>
-                <select class="form-control" name="oferta">
-                    <option value="" selected disabled hidden></option>
+                <select class="form-control" formControlName="oferta">
+                    <option value=""></option>
                     <option value="sem_oferta">Sem ofertas</option>
                     <option value="com_oferta">Com ofertas</option>
                     <option value="perdendo">Perdendo</option>
@@ -46,8 +45,8 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="uf">UF</label>
-                <select class="form-control" id="uf" name="uf">
-                    <option value="" selected disabled hidden></option>
+                <select class="form-control" id="uf" formControlName="uf">
+                    <option value=""></option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
                     <option value="AP">Amapá</option>
@@ -77,11 +76,6 @@
                     <option value="TO">Tocantins</option>
                 </select>
             </div>
-            <div class="form-group col-md-2">
-                <label class="label_input" for="cidade">Cidade</label>
-                <dw-input type="number" name="id_cidade" id="id_cidade" hidden></dw-input>
-                <dw-input type="text" name="nome_cidade" id="nome_cidade"></dw-input>
-            </div>
             <div class="form-group col-md-1">
                 <div class="vertical-center">
                     <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i>
@@ -91,6 +85,9 @@
         </div>
     </form>
     <hr />
+    
+    <h5 *ngIf="listResult === 0">nenhum registro encontrado.</h5>
+    <h5 *ngIf="listResult === -2">{{mensagem}}</h5>
 
     <div class="table-fixed ">
         <table class="table table-striped">
@@ -114,6 +111,5 @@
         </table>
     </div>
 
-    <h5 *ngIf="listResult === 0">nenhum registro encontrado.</h5>
-    <h5 *ngIf="listResult === -2">{{mensagem}}</h5>
+
 </div>
