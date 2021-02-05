@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h4>Incluir Oferta - Desejo cód: {{ id_wish}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea formControlName="descricao" class="form-control" autocomplete="off" id="descricao"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <input formControlName="destaque" type="checkbox" class="form-check-input" name="destaque" value="S">
+                <label class="form-check-label" for="destaque">Destaque*</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Valor</label>
+                <input formControlName="valor"  class="form-control" autocomplete="off" id="valor" name="valor" type="text" required />
+            </div>
+            <div class="form-group col-md-6">
+                <label>Validade</label>
+                <input formControlName="validade" class="form-control" autocomplete="off" id="validade" name="validade" type="date" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label_input" for="url">Url</label>
+            <input autocomplete="off" class="form-control" formControlName="url" id="url" type="text"/>
+        </div>
+
+        <div class="form-row  justify-content-center" >
+            <div class="form-group col-md-4">
+                <dw-button label="Incluir"></dw-button>
+            </div>
+            <div class="form-group col-md-4">
+                <dw-button typeButton="button" classUsed="secondaryBtn" label="Cancelar" class="secondaryBtn" (click)="closeModal()">
+                </dw-button>
+            </div>
+        </div>
+
+        <h6><i><font color="red">{{ mensagem }}</font></i></h6>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <h6><i>
+            <font color="gray">*contabilizado como duas ofertas</font>
+        </i></h6>
+</div>
