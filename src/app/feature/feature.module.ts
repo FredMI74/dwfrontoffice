@@ -10,12 +10,14 @@ import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component'
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [
      LoginComponent,
      HomeComponent,
      HeaderComponent,
-     ListWishesComponent],
+     ListWishesComponent,
+     ProductComponent],
   imports: [
     CommonModule,
     ComponentsModule,
@@ -23,6 +25,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  exports: [LoginComponent, HomeComponent, HeaderComponent],
+  exports: [
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent,
+    ProductComponent
+  ]
 })
 export class FeatureModule {}
