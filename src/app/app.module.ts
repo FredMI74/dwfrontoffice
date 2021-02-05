@@ -5,25 +5,22 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './shared/components/components.module';
 import { FeatureModule } from './feature/feature.module';
 import { AppRoutingModule } from './app-routing.module';
-import { APIInterceptor } from './api.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     ComponentsModule,
     FeatureModule,
     AppRoutingModule,
+    NgbModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: APIInterceptor,
-    multi: true,
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

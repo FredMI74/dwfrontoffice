@@ -6,21 +6,30 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
+import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [
      LoginComponent,
      HomeComponent,
-     HeaderComponent],
+     HeaderComponent,
+     ListWishesComponent,
+     ProductComponent],
   imports: [
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [
     LoginComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent
   ]
 })
-export class FeatureModule { }
+export class FeatureModule {}
