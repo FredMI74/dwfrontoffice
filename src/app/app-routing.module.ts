@@ -7,7 +7,7 @@ import { ProductComponent } from './feature/product/product.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  { path: 'wishes', loadChildren: () => import('@feature/wishes/wishes.module').then(m => m.WishesModule)},
+  {path: 'wishes', loadChildren: () => import('@feature/wishes/wishes.module').then(m => m.WishesModule)},
   {path: 'consultar-produtos', component: ProductComponent},
 ]
 @NgModule({

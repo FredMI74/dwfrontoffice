@@ -17,7 +17,10 @@
     </div>
     <div class="col-3">
       <label class="label-form">Departamento:</label>
-      <input formControlName="department" type="text" class="input-form">
+      <select formControlName="department" class="input-form form-control">
+        <option value="" disabled selected hidden>Select a department</option>
+        <option *ngFor="let p of departments.conteudo" value={{p.id}}>{{p.descricao}}</option>
+      </select>
     </div>
     <div class="col-3 align-self-end">
       <button class="btn btn-lg btn-style" type="submit">Consultar <i class="bi bi-search"></i></button>
