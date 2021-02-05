@@ -1,0 +1,27 @@
+.box-container {
+  margin-right: 3rem;
+  margin-left: 3rem;
+}
+
+.thead-color {
+  background-color: #4F4F4F;
+  color: #bdbdbd;
+}
+
+.btn-style {
+  background-color: #F2994A;
+  color: white;
+}
+
+
+.label-form {
+  color: #f2994a;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.input-form {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  height: 32px;
+}
