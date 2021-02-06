@@ -6,11 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DepartamentComponent } from './departament/departament.component';
 @NgModule({
   declarations: [
      LoginComponent,
      HomeComponent,
-     HeaderComponent],
+     HeaderComponent, 
+     DepartamentComponent],
   imports: [
     CommonModule,
     ComponentsModule,
