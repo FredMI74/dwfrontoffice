@@ -8,5 +8,4 @@ export class resultado{
         max_id: number;
         count_id: number;
     }
-
 }

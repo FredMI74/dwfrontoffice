@@ -1,0 +1,28 @@
+.div-input-departament-code {
+    width: 158px;
+    padding-right: 20px;
+}
+
+.div-input-departament-description {
+    width: 484px;
+}
+
+.form-departament {
+    display: flex;
+}
+
+.label-departament-code {
+    color: #F2994A;
+}
+
+.label-departament-description {
+    color: #F2994A;
+}
+
+.div-form-departament {
+    padding-bottom: 59px;
+}
+
+.div-title-departament {
+    border: 1px solid #E0E0E0;
+}
