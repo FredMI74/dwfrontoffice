@@ -1,0 +1,35 @@
+.right {
+    right: 0px;
+  }
+  
+  .label_input{
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 16px;
+    color: #F2994A;
+  }
+  
+  .label_grid{
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+  }
+  .label_title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 24px;
+    color: #4F4F4F;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+  }
+
+  .table-fixed {
+    display: block;
+    height: 500px;
+    overflow-y: scroll;
+  }

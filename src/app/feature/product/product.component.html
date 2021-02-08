@@ -1,0 +1,49 @@
+<div class="row justify-content-between">
+  <h1 class="mt-5 ml-5 col-4">Consultar Produtos</h1>
+  <i class="bi bi-x mt-5 mr-5 col-4" style="font-size: 3rem; color:red; text-align: end;"></i>
+</div>
+
+<hr class="mr-5 ml-5">
+
+<div class="container ml-5 mr-0 mb-5">
+  <form (ngSubmit)="onSubmit()" [formGroup]="productForm" class="row justify-content-start">
+    <div class="col-3">
+      <label  class="d-flex flex-direction-column label-form">Código:</label>
+      <input formControlName="code" type="text" aria-label="Name" class="input-form">
+    </div>
+    <div class="col-3">
+      <label class="d-flex flex-direction-column label-form">Descrição: </label>
+      <input formControlName="description" type="text" class="input-form">
+    </div>
+    <div class="col-3">
+      <label class="label-form">Departamento:</label>
+      <input formControlName="department" type="text" class="input-form">
+    </div>
+    <div class="col-3 align-self-end">
+      <button class="btn btn-lg btn-style" type="submit">Consultar <i class="bi bi-search"></i></button>
+    </div>
+  </form>
+</div>
+
+<div class="box-container">
+  <table class="table table-hover table-striped">
+    <thead class="thead-color">
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cód Grp.</th>
+        <th scope="col">Grupo</th>
+        <th scope="col">Ícone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tableArray">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.descricao}}</td>
+        <td>{{item.id_grp_prod}}</td>
+        <td>{{item.desc_grp_produto}}</td>
+        <td><img src={{item.icone}} /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -5,12 +5,18 @@ nav{
 .headerLogo h1{
   color: #F2994A;
   font-weight: bold;
+
 }
 .headerLogo h4{
   color: #ffffff;
   font-weight: 500;
   line-height: 0.5;
 }
+
+.headerLogo :hover {
+  text-decoration: none;
+}
+
 .headerDynamicOptions a{
   color: #bdbdbd;
   font-weight: 500;
