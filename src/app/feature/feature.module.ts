@@ -7,14 +7,16 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListWishesComponent } from './wishes/list-wishes/list-wishes.component';
+import { ProductComponent } from './product/product.component';
+import { DepartamentComponent } from './departament/departament.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-
-import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [
      LoginComponent,
      HomeComponent,
+     HeaderComponent, 
+     DepartamentComponent,
      HeaderComponent,
      ListWishesComponent,
      ProductComponent],
