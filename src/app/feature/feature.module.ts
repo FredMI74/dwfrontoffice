@@ -17,7 +17,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
      HomeComponent,
      HeaderComponent, 
      DepartamentComponent,
-     HeaderComponent,
      ListWishesComponent,
      ProductComponent],
   imports: [
@@ -31,7 +30,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    ProductComponent
+    ProductComponent,
+    DepartamentComponent
   ]
 })
 export class FeatureModule {}

@@ -1,17 +1,7 @@
-  
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DepartamentComponent } from './departament.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
-
-const routes: Routes = [
-    {
-        path: 'list',
-        component: DepartamentComponent
-    }
-];
 
 @NgModule({
     declarations: [
@@ -20,8 +10,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         FormsModule,
         CommonModule,
-        ComponentsModule,
-        RouterModule.forChild(routes)
+        ComponentsModule
     ]
 })
 
