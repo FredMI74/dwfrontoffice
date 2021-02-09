@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddOfferComponent } from '@feature/offers/add-offer/add-offer.component';
 import { FormControl, FormGroup} from '@angular/forms';
 import { WhishesService } from '@feature/wishes/wishes.service';
 import { Products } from '@feature/models/product';
 import { Wishes } from '@feature/models/wish';
+
 
 @Component({
   selector: 'page-list-wishes',
@@ -22,6 +23,8 @@ export class ListWishesComponent implements OnInit {
   mensagem: string = "";
   closeResult = '';
 
+  nrSelect = 'sem_oferta';
+
   headWishes = ['Cód', 'Icone', 'Descrição', 'Cidade','Tipo Prod.', 'Ofertas Vál.','Ação'];
 
   wishes = new Wishes();
@@ -31,7 +34,6 @@ export class ListWishesComponent implements OnInit {
 
 
   constructor(private modalService: NgbModal, private wishesService :  WhishesService) {
-
     this.listForm = new FormGroup({
       id_desejo: new FormControl(''),
       oferta: new FormControl(''),
@@ -59,6 +61,7 @@ export class ListWishesComponent implements OnInit {
 
 
   onSubmit() {
+    this.p = 1;
     this.wishesService
       .list(
         this.listForm.controls.descricao?.value,
