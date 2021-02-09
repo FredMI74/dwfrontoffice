@@ -36,8 +36,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label class="label_input" for="Ofertas">Ofertas</label>
-                <select class="form-control" formControlName="oferta">
-                    <option value=""></option>
+                <select class="form-control" formControlName="oferta" [(ngModel)]='nrSelect' >
                     <option value="sem_oferta">Sem ofertas</option>
                     <option value="com_oferta">Com ofertas</option>
                     <option value="perdendo">Perdendo</option>
@@ -80,7 +79,7 @@
             </div>
             <div class="form-group col-md-1">
                 <div class="vertical-center">
-                    <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i>
+                    <dw-button id="ConsultarBtn" type="submit" label="Consultar" icon="bi bi-search"> 
                     </dw-button>
                 </div>
             </div>
@@ -101,7 +100,7 @@
             <tbody *ngIf="listResult > 0">
                 <tr *ngFor="let w of wishes.conteudo | paginate: { itemsPerPage: 20, currentPage: p, totalItems: count_id }">
                     <th scope="row">{{w.id}}</th>
-                    <td><img src={{w.icone_tp_produto}} /></td>
+                    <td><img src={{w.icone_tp_produto}} width="36px" height="36px" /></td>
                     <td>{{w.descricao}}</td>
                     <td>{{w.cidade}}</td>
                     <td>{{w.desc_tp_produto}}</td>
