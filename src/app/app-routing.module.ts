@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DepartamentComponent } from './feature/departament/departament.component';
 import { HomeComponent } from './feature/home/home.component';
 import { LoginComponent } from './feature/login/login.component';
 import { ProductComponent } from './feature/product/product.component';
 
-
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'departament', component: DepartamentComponent},
-  {path: 'wishes', loadChildren: () => import('@feature/wishes/wishes.module').then(m => m.WishesModule)},
-  {path: 'consultar-produtos', component: ProductComponent},
-]
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'departament', component: DepartamentComponent },
+  {
+    path: 'wishes',
+    loadChildren: () =>
+      import('@feature/wishes/wishes.module').then((m) => m.WishesModule),
+  },
+  { path: 'consultar-produtos', component: ProductComponent },
+];
 @NgModule({
-  imports: [
-RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

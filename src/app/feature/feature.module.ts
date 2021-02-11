@@ -13,25 +13,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
-     LoginComponent,
-     HomeComponent,
-     HeaderComponent, 
-     DepartamentComponent,
-     ListWishesComponent,
-     ProductComponent],
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent,
+    DepartamentComponent,
+    ListWishesComponent,
+    ProductComponent,
+  ],
   imports: [
     CommonModule,
     ComponentsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports: [
     LoginComponent,
     HomeComponent,
     HeaderComponent,
     ProductComponent,
-    DepartamentComponent
-  ]
+    DepartamentComponent,
+  ],
 })
 export class FeatureModule {}
