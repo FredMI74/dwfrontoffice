@@ -1,9 +1,12 @@
 import { resultado } from "./resultado";
 
 class Departament {
-    id: number = 0;
+    desc_situacao: string = "";
     descricao: string = "";
+    icone: string = "";
+    id: number = 0;
     id_situacao: number = 0;
+    ordem: number = 0;
     token:  string = "";
 }
 

@@ -33,6 +33,7 @@ export class DepartamentComponent implements OnInit {
             this.listFormDepartament.get('descricao')?.value,
             this.listFormDepartament.controls.id?.value
         ).subscribe((response) => {
+            console.log('resposta', response);
             this.departament = response;
             if (this.departament.resultado.erro === false) {
                 this.listResultDepartament = this.departament.conteudo.length;

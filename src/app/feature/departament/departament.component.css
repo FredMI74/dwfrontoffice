@@ -11,11 +11,7 @@
     display: flex;
 }
 
-.label-departament-code {
-    color: #F2994A;
-}
-
-.label-departament-description {
+.label-departament-input {
     color: #F2994A;
 }
 
