@@ -22,7 +22,8 @@ export class WhishesService {
 
   list(description: string = "", id_tp_prod: string = "0",
        id: string = "", oferta: string = "",
-       uf: string = "" , max_id: number = 0, pagina : number = 1 ) {
+       uf: string = "" , id_cidade: string = "",
+       max_id: number = 0, pagina : number = 1 ) {
 
     const body = new HttpParams()
       .set('descricao', description)
@@ -32,6 +33,7 @@ export class WhishesService {
       .set('id', id)
       .set('oferta', oferta)
       .set('uf', uf)
+      .set('id_cidade',id_cidade)
       .set('paginacao','S')
       .set('max_id',max_id.toString())
       .set('pagina',pagina.toString())

@@ -1,18 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit } from '@angular/core';
 import { User } from '@feature/models/user';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { City, Cities } from './cities';
+import { Cities } from './cities';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+
 
 @Component({
   selector: 'dw-city-search',
   templateUrl: './city-search.component.html',
-  styleUrls: ['./city-search.component.css']
+  styleUrls: ['./city-search.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CitySearchComponent),
+      multi: true
+    }
+  ]
 })
 
-
+// https://www.freakyjolly.com/autocomplete-using-angular-ng-autocomplete-package-tutorial-by-example/#.YCUASWhKjIU
+// https://medium.com/joolsoftware/creating-a-custom-formcontrol-in-angular-da92f2f47733
 
 export class CitySearchComponent implements OnInit {
+
+  value = 0;
+  onChange: any = () => { };
+  onTouched: any = () => { };
 
   private  _currentUser: User = JSON.parse(localStorage.getItem('currentUser') || '{}');
 
@@ -21,33 +35,30 @@ export class CitySearchComponent implements OnInit {
     'Authorization': 'Bearer ' + this._currentUser.tokenJwt
   });
 
-
   keyword = 'nome';
  
-  public data: City[] = [];
+  public data: any;
   listCities: Cities = new Cities;
 
-    selectEvent(item:any) {
-    // do something with selected item
+  selectEvent(item:any) {
+    this.onChange(item.id);
   }
 
   onChangeSearch(search: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
-
     this.list_cities(search).subscribe((response) => {
       this.listCities = response;
-      
       if (this.listCities.resultado.erro === false) {
-        this.data = Array.from(new Set(this.listCities.conteudo.map((p) => new City(p.id, p.nome + '/' + p.uf) )));
-        console.log(this.data);
+        this.data = this.listCities.conteudo;
         }
     });
-
   }
 
   onFocused(e:any) {
     // do something
+  }
+
+  searchCleared() {
+    this.onChange(0);
   }
 
   list_cities(s: string) {
@@ -62,6 +73,16 @@ export class CitySearchComponent implements OnInit {
     );
   }
 
+  writeValue(value: number): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+ }
+ registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+ }
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {

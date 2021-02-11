@@ -10,7 +10,7 @@ class resultado{
     }
   };
   
-  export class City {
+class City {
       id: number = 0;
       nome: string = "";
       uf: string = "";

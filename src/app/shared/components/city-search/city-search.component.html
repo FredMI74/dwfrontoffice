@@ -1,3 +1,4 @@
+<input type="number" [value]="value" hidden/>
 <div class="ng-autocomplete">
     <ng-autocomplete 
       [data]="data"
@@ -6,11 +7,13 @@
       (inputChanged)='onChangeSearch($event)'
       (inputFocused)='onFocused($event)'
       [itemTemplate]="itemTemplate"
-      [notFoundTemplate]="notFoundTemplate">                                 
+      [minQueryLength] = 3
+      [notFoundTemplate]="notFoundTemplate"
+      (inputCleared)="searchCleared()"> 
     </ng-autocomplete>
     
     <ng-template #itemTemplate let-item>
-    <a [innerHTML]="item.name"></a>
+      <span [innerHTML]="item.nome"></span><i>/{{item.uf}}</i>
     </ng-template>
     
     <ng-template #notFoundTemplate let-notFound>
