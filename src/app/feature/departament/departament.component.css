@@ -11,6 +11,11 @@
     display: flex;
 }
 
+.align-form-departament {
+    display: flex;
+    align-items: flex-end;
+}
+
 .label-departament-input {
     color: #F2994A;
 }

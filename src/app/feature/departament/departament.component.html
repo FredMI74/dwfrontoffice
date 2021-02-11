@@ -5,7 +5,7 @@
     <hr />
     <div>
         <form [formGroup]="listFormDepartament" (ngSubmit)="onSubmit()">
-            <div class="form-row">
+            <div class="form-row align-form-departament">
                 <div class="form-group col-md-1">
                     <label class="label-departament-input" for="id">Código</label>
                     <dw-input formControlName="id" autocomplete="off" id="id" type="number" ngDefaultControl></dw-input>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group col-md-1">
                     <div class="vertical-center">
-                        <dw-button id="ConsultarBtn" type="submit" label="Consultar"> <i class="bi bi-search"></i>
+                        <dw-button id="ConsultarBtn" type="submit" label="Consultar" icon="bi bi-search"> <i class="bi bi-search"></i>
                         </dw-button>
                     </div>
                 </div>
@@ -32,8 +32,7 @@
                     <th scope="col">Código</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cod Grp.</th>
-                    <th scope="col">Grupo</th>
-                    <th scope="col">Preenchimento</th>
+                    <th scope="col">Situação</th>
                     <th scope="col">Ícone</th>
                 </tr>
             </thead>
@@ -43,7 +42,6 @@
                     <td>{{d.descricao}}</td>
                     <td>{{d.ordem}}</td>
                     <td>{{d.desc_situacao}}</td>
-                    <td>{{d.id_situacao}}</td>
                     <td><img src={{d.icone}} /></td>
                 </tr>
             </tbody>
