@@ -24,12 +24,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(
-      'data = ',
-      this.loginForm.controls.email?.value,
-      this.loginForm.controls.currentPassword?.value,
-      document.getElementById('email')
-    );
     this.loginService
       .login(
         this.loginForm.get('email')?.value,
