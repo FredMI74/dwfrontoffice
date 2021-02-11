@@ -39,7 +39,8 @@ export class ListWishesComponent implements OnInit {
       oferta: new FormControl(''),
       uf: new FormControl(''), 
       descricao: new FormControl(''),
-      id_tp_produto : new FormControl('')
+      id_tp_produto : new FormControl(''),
+      id_cidade: new FormControl('')
     });
    }
 
@@ -68,7 +69,8 @@ export class ListWishesComponent implements OnInit {
         this.listForm.controls.id_tp_produto?.value,
         this.listForm.controls.id_desejo?.value,
         this.listForm.controls.oferta?.value,
-        this.listForm.controls.uf?.value)
+        this.listForm.controls.uf?.value,
+        this.listForm.controls.id_cidade?.value)
       .subscribe((response) => {
         this.wishes = response;
         if (this.wishes.resultado.erro === false) {
@@ -91,7 +93,9 @@ export class ListWishesComponent implements OnInit {
       this.listForm.controls.id_tp_produto?.value,
       this.listForm.controls.id_desejo?.value,
       this.listForm.controls.oferta?.value,
-      this.listForm.controls.uf?.value, this.max_id, this.p)
+      this.listForm.controls.uf?.value,
+      this.listForm.controls.id_cidade?.value,
+      this.max_id, this.p)
     .subscribe((response) => {
       this.wishes = response;
       if (this.wishes.resultado.erro === false) {
