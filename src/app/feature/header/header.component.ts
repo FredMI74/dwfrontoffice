@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   currentUser : User = new User();
   enterprise : Enterprises = new Enterprises();
-  
+
   @Input() nome_usuario : string = "";
   @Input() nome_empresa : string = "";
   @Input() logo : string = "";
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
       this.nome_empresa = this.enterprise.conteudo[0].fantasia;
       this.logo = this.enterprise.conteudo[0].logo;
     }
-    
+
   }
 
   logout() {
