@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from './product.service';
-import { TableArray } from '../models/tableArray';
+import { TableArray } from '../models/Array';
+import { Departaments } from '../models/departament';
 
 @Component({
   selector: 'product-page',
@@ -25,6 +26,8 @@ export class ProductComponent implements OnInit {
     },
   ];
 
+  departaments: Departaments = new Departaments;
+
   constructor(private router: Router, private productService: ProductService) {
     this.productForm = new FormGroup({
       code: new FormControl(''),
@@ -33,13 +36,20 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService
+    .list_departments()
+    .subscribe((response) => {
+      console.log(response);
+      this.departaments = response;
+    });
+  }
 
   onSubmit() {
     this.productService
       .consultProduct(
         this.productForm.get('code')?.value,
-        this.productForm.get('description')?.value,
+        this.productForm.controls.description?.value,
         this.productForm.get('department')?.value
       )
       .subscribe((response) => {

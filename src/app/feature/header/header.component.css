@@ -17,15 +17,23 @@ nav{
   text-decoration: none;
 }
 
+/* .navbar-toggler-icon {
+  background-color: white;
+  color: black;
+} */
+
 .headerDynamicOptions a{
   color: #bdbdbd;
   font-weight: 500;
 }
 .headerStaticOptions li:first-child>a{
     color: #eb5757;
+    padding: 0;
+    margin-left: -10rem;
 }
-.headerStaticOptions a{
+.headerStaticOptions a i{
   color: #f2c94C;
+  font-size: 1.2rem;
 }
 
 ul:last-child{

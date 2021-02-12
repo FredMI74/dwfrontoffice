@@ -1,6 +1,9 @@
 .box-container {
   margin-right: 3rem;
   margin-left: 3rem;
+  display: block;
+  height: 500px;
+  overflow-y: scroll;
 }
 
 .thead-color {
