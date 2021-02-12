@@ -1,24 +1,43 @@
 <nav class="navbar px-5 align-items-center">
+  <a class="navbar-brand" href="#">
+    <img src="{{ logo }}" width="80" height="80" class="d-inline-block align-top" alt="">
+  </a>
   <div class="headerLogo">
-    <a href="#">
-      <h1>DealWish</h1>
-      <h4>Loja Virtual</h4>
-    </a>
+    <h1>Dealwish</h1>
+    <h4>{{ nome_empresa }}</h4>
   </div>
   <ul class="headerDynamicOptions nav px-5">
     <li class="nav-item">
       <a class="nav-link" href="wishes/list">Desejos</a>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+      <a
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >Produtos</a
+      >
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Consultar Departamentos</a>
-        <a class="dropdown-item" href="consultar-produtos">Consultar Produtos</a>
+        <a class="dropdown-item" href="departament">Consultar Departamentos</a>
+        <a class="dropdown-item" href="consultar-produtos"
+          >Consultar Produtos</a
+        >
       </div>
     </li>
 
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
+      <a
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >Usuários</a
+      >
       <div class="dropdown-menu">
         <a class="dropdown-item" href="#">Incluir Usuários</a>
         <a class="dropdown-item" href="#">Consultar Usuários</a>
@@ -31,15 +50,13 @@
       <a class="nav-link" href="#">Empresas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Administrador Lojas Virtual</a>
+      <a class="nav-link" href="#">{{ nome_usuario }}</a>
     </li>
   </ul>
   <ul class="headerStaticOptions nav">
     <li class="nav-item">
-      <a class="nav-link" href="">Sair</a>
+      <a class="nav-link" href="/login" onclick="logout()">Sair</a>
     </li>
-    <li class="nav-item">
-      <a cl ass="nav-link" href=""><i class="bi bi-arrow-up-square-fill"></i>?</a>
-    </li>
+
   </ul>
 </nav>

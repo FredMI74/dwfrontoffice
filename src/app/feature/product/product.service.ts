@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Products, listDepartments } from './../models/productDepartments';
+import { Products } from './../models/productDepartments';
 
 
 @Injectable({
@@ -23,7 +23,7 @@ export class ProductService {
 
   consultProduct(code: number = 0, description: string = '', department: string = '') {
     const body = new HttpParams()
-      .set('department', department)
+      .set('id_grp_prod', department)
       .set('descricao', description)
       .set( 'id', code.toString())
       .set('token', this.userOnline.token);
@@ -41,7 +41,7 @@ export class ProductService {
     .set( 'id_situacao', '1')
     .set('token', this.userOnline.token);
 
-    return this.http.post<listDepartments>(
+    return this.http.post<any>(
       `${environment.apiUrl}/api/consultar_grp_produto`,
       body.toString(),
       { headers: this._headers }

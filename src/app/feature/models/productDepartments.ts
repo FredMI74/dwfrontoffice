@@ -3,8 +3,4 @@ export class Products {
   conteudo: any;
 }
 
-export class listDepartments{
-  conteudo: any;
-  resultado: any;
-}
 

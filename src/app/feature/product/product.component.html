@@ -1,11 +1,11 @@
-<div class="row justify-content-between">
-  <h1 class="mt-5 ml-5 col-4">Consultar Produtos</h1>
-  <i class="bi bi-x mt-5 mr-5 col-4" style="font-size: 3rem; color:red; text-align: end;"></i>
+<div class="row w-100 justify-content-between">
+  <h2 class="mt-5 ml-5 col-4">Consultar Produtos</h2>
+  <i class="bi bi-house mt-5 mr-5 col-4" style="font-size: 1em; color:blue; text-align: end;"></i>
 </div>
 
 <hr class="mr-5 ml-5">
 
-<div class="container ml-5 mr-0 mb-5">
+<div class="container ml-5  mb-5">
   <form (ngSubmit)="onSubmit()" [formGroup]="productForm" class="row justify-content-start">
     <div class="col-3">
       <label  class="d-flex flex-direction-column label-form">Código:</label>
@@ -19,7 +19,8 @@
       <label class="label-form">Departamento:</label>
       <select formControlName="department" class="input-form form-control">
         <option value="" disabled selected hidden>Select a department</option>
-        <option *ngFor="let p of departments.conteudo" value={{p.id}}>{{p.descricao}}</option>
+        <option value=""></option>
+        <option *ngFor="let p of departaments.conteudo" value={{p.id}}>{{p.descricao}}</option>
       </select>
     </div>
     <div class="col-3 align-self-end">

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from './product.service';
-import { TableArray, Departments } from '../models/Array';
+import { TableArray } from '../models/Array';
+import { Departaments } from '../models/departament';
 
 @Component({
   selector: 'product-page',
@@ -25,8 +26,7 @@ export class ProductComponent implements OnInit {
     },
   ];
 
-  departments: Departments = new Departments;
-  departmentsList: string[] = [];
+  departaments: Departaments = new Departaments;
 
   constructor(private router: Router, private productService: ProductService) {
     this.productForm = new FormGroup({
@@ -41,10 +41,7 @@ export class ProductComponent implements OnInit {
     .list_departments()
     .subscribe((response) => {
       console.log(response);
-      this.departments = response;
-      if (response.resultado.erro === false) {
-        this.departmentsList = Array.from(new Set(this.departments.conteudo.map((p) =>p.desc_grp_produto)));
-      }
+      this.departaments = response;
     });
   }
 
@@ -52,7 +49,7 @@ export class ProductComponent implements OnInit {
     this.productService
       .consultProduct(
         this.productForm.get('code')?.value,
-        this.productForm.controls.descricao?.value,
+        this.productForm.controls.description?.value,
         this.productForm.get('department')?.value
       )
       .subscribe((response) => {
