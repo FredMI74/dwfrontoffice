@@ -1,7 +1,10 @@
 <nav class="navbar px-5 align-items-center">
+  <a class="navbar-brand" href="#">
+    <img src="{{ logo }}" width="80" height="80" class="d-inline-block align-top" alt="">
+  </a>
   <div class="headerLogo">
     <h1>Dealwish</h1>
-    <h4>Loja Virtual</h4>
+    <h4>{{ nome_empresa }}</h4>
   </div>
   <ul class="headerDynamicOptions nav px-5">
     <li class="nav-item">
@@ -47,17 +50,13 @@
       <a class="nav-link" href="#">Empresas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Administrador Lojas Virtual</a>
+      <a class="nav-link" href="#">{{ nome_usuario }}</a>
     </li>
   </ul>
   <ul class="headerStaticOptions nav">
     <li class="nav-item">
       <a class="nav-link" href="/login" onclick="logout()">Sair</a>
     </li>
-    <li class="nav-item">
-      <a cl ass="nav-link" href=""
-        ><i class="bi bi-arrow-up-square-fill"></i>?</a
-      >
-    </li>
+   
   </ul>
 </nav>

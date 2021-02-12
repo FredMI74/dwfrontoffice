@@ -1,7 +1,12 @@
-<div class="container-fluid">
-    <div>
-        <h2>Consultar Departamento</h2>
-    </div> 
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-sm">
+        <h2>Consultar Departamentos</h2>
+        </div>
+        <div class="right">
+            <a class="nav-link" href=""><i class="bi bi-house"></i></a>
+        </div>
+    </div>
     <hr />
     <div>
         <form [formGroup]="listFormDepartament" (ngSubmit)="onSubmit()">
@@ -24,7 +29,7 @@
              
         </form>
     </div>
-
+    <hr />
     <div class="table-fixed ">
         <table class="table table-striped">
             <thead class="thead-dark">
